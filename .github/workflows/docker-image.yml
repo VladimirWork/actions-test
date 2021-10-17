@@ -8,13 +8,16 @@ on:
 
 jobs:
 
-  build:
+  test:
     strategy:
       matrix:
-        ubuntu-version: [ubuntu-18.04, ubuntu-20.04]
+        ubuntu-version: [ubuntu-18.04, ubuntu-20.04, macos-11]
     runs-on: ${{ matrix.ubuntu-version }}
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Check out
+        uses: actions/checkout@v2
+
+      - name: Check versions
+      - run: |
+          python3 --version
