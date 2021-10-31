@@ -58,12 +58,22 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: node --version
 
-  cypress-run:
+  cypress-chrome:
     runs-on: ubuntu-latest
-    name: Cypress test run
+    name: Cypress test run against chrome
 
     steps:
       - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v2
         with:
           browser: chrome
+
+  cypress-edge:
+    runs-on: windows-latest
+    name: Cypress test run against edge
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v2
+        with:
+          browser: edge
