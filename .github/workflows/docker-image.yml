@@ -72,7 +72,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Cypress test run - Firefox
     container:
-      image: cypress/browsers:latest
+      image: cypress/browsers:node16.5.0-chrome94-ff93
       options: --user 1001
 
     steps:
