@@ -13,6 +13,7 @@ jobs:
       matrix:
         ubuntu-version: [ubuntu-18.04, ubuntu-20.04, macos-11]
     runs-on: ${{ matrix.ubuntu-version }}
+    if: ${{ false }}
 
     steps:
       - name: Check out
@@ -28,6 +29,7 @@ jobs:
       matrix:
         python-version: [ '2.x', '3.x', 'pypy-2.7', 'pypy-3.6', 'pypy-3.7' ]
     name: Python ${{ matrix.python-version }} sample
+    if: ${{ false }}
 
     steps:
       - uses: actions/checkout@v2
@@ -45,6 +47,7 @@ jobs:
       matrix:
         node-version: [ '12', '14', '16' ]
     name: Node ${{ matrix.node-version }} sample
+    if: ${{ false }}
 
     steps:
       - uses: actions/checkout@v2
@@ -56,8 +59,8 @@ jobs:
       - run: node --version
 
   cypress-run:
-    runs-on: ubuntulatest
-    name: E2E on Chrome
+    runs-on: ubuntu-latest
+    name: Cypress test run
 
     steps:
       - uses: actions/checkout@v2
