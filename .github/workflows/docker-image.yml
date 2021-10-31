@@ -60,7 +60,7 @@ jobs:
 
   cypress-chrome:
     runs-on: ubuntu-latest
-    name: Cypress test run against chrome
+    name: Cypress test run - Chrome
 
     steps:
       - uses: actions/checkout@v2
@@ -70,9 +70,9 @@ jobs:
 
   cypress-firefox:
     runs-on: ubuntu-latest
-    name: Cypress test run against firefox
+    name: Cypress test run - Firefox
     container:
-      image: cypress/browsers:node12.16.1-chrome80-ff73
+      image: cypress/browsers:latest
       options: --user 1001
 
     steps:
@@ -83,7 +83,7 @@ jobs:
 
   cypress-edge:
     runs-on: windows-latest
-    name: Cypress test run against edge
+    name: Cypress test run - Edge
 
     steps:
       - uses: actions/checkout@v2
