@@ -11,10 +11,10 @@ jobs:
   check-runners:
     strategy:
       matrix:
-        ubuntu-version: [ubuntu-18.04, ubuntu-20.04, macos-11]
+        ubuntu-version: [ubuntu-18.04, ubuntu-20.04]
         containers: [1, 2, 3]
     runs-on: ${{ matrix.ubuntu-version }}
-    if: ${{ true }}
+    if: ${{ false }}
 
     steps:
       - name: Check out
