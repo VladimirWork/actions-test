@@ -19,7 +19,7 @@ jobs:
           arch: "x86_64"
           profile: "Nexus 6"
           avd-name: "Nexus"
-          emulator-options: "-gpu swiftshader_indirect -no-snapshot -noaudio"
+          emulator-options: "-no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none"
           script: emulator -list-avds
 
   ios-launch:
@@ -30,7 +30,7 @@ jobs:
         with:
           model: 'iPhone 11'
           os: "iOS"
-          os_version: "14.0"
+          os_version: ">=14.0"
       - run: xcrun simctl list | grep Booted
 
   # check-runners:
