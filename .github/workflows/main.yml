@@ -15,7 +15,7 @@ jobs:
       - uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-      - run: emulator -list-avds
+          script: emulator -list-avds
 
   ios-launch:
     runs-on: macos-11
