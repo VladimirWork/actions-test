@@ -1,0 +1,42 @@
+name: Cypress Cross-Browser Testing
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  cypress-chrome:
+    runs-on: ubuntu-latest
+    name: Cypress test run - Chrome
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+
+  cypress-firefox:
+    runs-on: ubuntu-latest
+    name: Cypress test run - Firefox
+    container:
+      image: cypress/browsers:node16.5.0-chrome94-ff93
+      options: --user 1001
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v2
+        with:
+          browser: firefox
+
+  cypress-edge:
+    runs-on: windows-latest
+    name: Cypress test run - Edge
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v2
+        with:
+          browser: edge
