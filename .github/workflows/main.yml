@@ -24,7 +24,7 @@ jobs:
       - uses: futureware-tech/simulator-action@v1
         with:
           model: 'iPhone 8'
-      - run: flutter drive
+      - run: xcrun simctl list | grep Booted
 
   # check-runners:
   #   strategy:
